@@ -11,9 +11,9 @@ const Pokemons = ({data}) =>{
         //     })
         // })
         fetchPokemons(1).then(res=>{
-            console.log(res)
+  
         })
-        console.log(pokemonsData)
+    
     },[data])
     const renderPokemons = () =>{
         return data?.map((pokemon, index)=>{
