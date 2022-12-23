@@ -16,22 +16,29 @@ export const fetchPokemons = async (page, num=20) => {
     try {
         const url = API_BASE_URL + `pokemon?limit=${num}&offset=${page - 1}`;
         const { data } = await axios(url);
-        console.log(data.results);
-        const pokemons = await data?.results?.map(poke=>{
-            fetchPokemonDetail(poke?.url).then(res=>{
-                return res
-            })
-        })
-        console.log(pokemons)
+        // const pokemon = await data?.results?.map(poke=>{
+        //     fetchPokemonDetail(poke?.url).then(res=>{
+        //         return res
+        //     })
+        // })
+        let results = await getPokemonArray(data?.results)
+        console.log(await results)
     } catch (err) {
         console.log(err);
     }
 };
 
+const getPokemonArray = async (data) => {
+    let pokemonArray = [];
+    data.forEach(async (pokemon) => {
+        pokemonArray.push(await fetchPokemonDetail(pokemon.url))
+    })
+    return pokemonArray;
+}
+
 export const fetchPokemonDetail = async (url) => {
     try {
         const data = await axios(url);
-        console.log(url)
         return data;
     } catch (err) {
         console.log(err);
