@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_BASE_URL = "https://pokeapi.co/api/v2/";
 
+// Fetch all the pokemons' name and link
 export const fetchAllPokemons = async () => {
     try {
         const url = API_BASE_URL + "pokemon?limit=100000&offset=0";
@@ -12,22 +13,19 @@ export const fetchAllPokemons = async () => {
     }
 };
 
+// Get all Pokedmons 20 per page
 export const fetchPokemons = async (page, num=20) => {
     try {
         const url = API_BASE_URL + `pokemon?limit=${num}&offset=${page - 1}`;
         const { data } = await axios(url);
-        // const pokemon = await data?.results?.map(poke=>{
-        //     fetchPokemonDetail(poke?.url).then(res=>{
-        //         return res
-        //     })
-        // })
         let results = await getPokemonArray(data?.results)
-        console.log(await results)
+        return results;
     } catch (err) {
         console.log(err);
     }
 };
 
+//Fetch all Pokedmons in details
 const getPokemonArray = async (data) => {
     let pokemonArray = [];
     data.forEach(async (pokemon) => {
@@ -36,6 +34,7 @@ const getPokemonArray = async (data) => {
     return pokemonArray;
 }
 
+// Get single Pokedmon in detail
 export const fetchPokemonDetail = async (url) => {
     try {
         const data = await axios(url);

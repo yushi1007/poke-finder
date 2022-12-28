@@ -1,35 +1,36 @@
-import { useEffect, useState } from "react"
-import Pokemon from "./Pokemon"
-import {fetchPokemonDetail, fetchPokemons} from '../api/Api';
-const Pokemons = ({data}) =>{
-    const [pokemonsData, setPokemonsData] = useState([]);
-    useEffect(()=>{
-        // data?.forEach(p=>{
-        //     fetchPokemonDetail(p?.url).then(res=>{
+import { useEffect, useState } from "react";
+import Pokemon from "./Pokemon";
+import { fetchPokemonDetail, fetchPokemons } from "../api/Api";
+const Pokemons = ({ data }) => {
+  const [pokemonsData, setPokemonsData] = useState([]);
+  const [page, setPage] = useState(1);
+  const num = 20;
 
-        //         setPokemonsData(prevState => [...prevState, res.data.sprites] )
-        //     })
-        // })
-        fetchPokemons(1).then(res=>{
-  
-        })
-    
-    },[data])
-    const renderPokemons = () =>{
-        return data?.map((pokemon, index)=>{
-            return <Pokemon key={index} pokemonData={pokemon} />
-        })
-    }
+  useEffect(() => {
+    getPokemons(page, num);
+  }, [page, num]);
 
-    const showData = () =>{
-        console.log(JSON.stringify(pokemonsData))
-    }
-    return(
-        <div className="pokemons">
-            <button onClick={()=>showData()}>click</button>
-            {renderPokemons()}
-        </div>
-    )
-}
+  const getPokemons = (page, num) => {
+    fetchPokemons(page, num).then((data) => {
+      setPokemonsData(data);
+    });
+  };
+
+  const renderPokemons = () => {
+    return data?.map((pokemon, index) => {
+      return <Pokemon key={index} pokemonData={pokemon} />;
+    });
+  };
+
+  const showData = () => {
+    console.log(JSON.stringify(pokemonsData));
+  };
+  return (
+    <div className="pokemons">
+      <button onClick={() => showData()}>click</button>
+      {renderPokemons()}
+    </div>
+  );
+};
 
 export default Pokemons;
