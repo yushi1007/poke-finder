@@ -6,7 +6,7 @@
 
 a{
     text-decoration: none;
-    color: #ffe93e;
+    color: #ffe100;
 }
 
 /* ----------------------------------------------- */
@@ -21,17 +21,19 @@ a{
     top: 0;
     left: 0;
     width: 100%;
-    background: #5ca5ff;
+    background: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo a {
+    display: flex;
+    align-items: center;
     font-size: 22px;
     font-weight: 500;
 }
 .header .close-icon,
 .header .search-icon {
-    color: #ffe93e;
+    color: #ffe100;
     font-size: 25px;
     cursor: pointer;
 }
