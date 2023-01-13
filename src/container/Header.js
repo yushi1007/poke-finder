@@ -10,7 +10,7 @@ const Header = () => {
   };
 
   return (
-    <header className={show ? "header show-search-box" : "header"}>
+    <header className={`${show ? "header show-search-box" : "header"} container`}>
       <div className="logo">
         <a href="/">
           <img src={homeicon} width="35" height="35" alt="logo"/>
