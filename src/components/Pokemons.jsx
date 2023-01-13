@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Pokemon from "./Pokemon";
-import { fetchPokemonDetail, fetchPokemons } from "../api/Api";
+import { fetchPokemons } from "../api/Api";
 const Pokemons = ({ data }) => {
   const [pokemonsData, setPokemonsData] = useState([]);
   const [page, setPage] = useState(1);
@@ -22,12 +22,8 @@ const Pokemons = ({ data }) => {
     });
   };
 
-  const showData = () => {
-    console.log(JSON.stringify(pokemonsData));
-  };
   return (
     <div className="pokemons">
-      <button onClick={() => showData()}>click</button>
       {renderPokemons()}
     </div>
   );
