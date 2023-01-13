@@ -74,9 +74,8 @@ a {
       padding: 0 15px 0 45px;
     }
   }
-}
-
-.header.show-search-box .search-box {
-  opacity: 1;
-  pointer-events: auto;
+  &.show-search-box .search-box {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
