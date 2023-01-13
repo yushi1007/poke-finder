@@ -1,9 +1,9 @@
-const Card = () =>{
-    return (
-        <div className="card">
-            card
-        </div>
-    )
+import React from 'react'
+
+const Card = () => {
+  return (
+    <div>Card</div>
+  )
 }
 
-export default Card;
+export default Card

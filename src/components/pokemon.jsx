@@ -1,18 +1,27 @@
 import { useEffect, useState } from "react";
 import {fetchPokemonDetail} from '../api/Api';
 const Pokemon = ({pokemonData}) =>{
-    const [url, setUrl] = useState();
     const [pokemonDetail, setPokemonDetail] = useState();
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+
     useEffect(()=>{
-        if(url){
-            fetchPokemonDetail(url).then(res=>{
-                console.log(res?.data)
+        if(pokemonData?.url){
+            fetchPokemonDetail(pokemonData?.url).then(res=>{
+                if(res){
+                    setPokemonDetail(res.data)
+                    setError(false)
+                } else {
+                    setError(true)
+                }
+                setLoading(false)
             })
         }
-    },[url])
+    },[])
+
     return(
         <div className="pokemon">
-            <p onClick={()=>setUrl(pokemonData?.url)}>{pokemonData?.name}</p>
+            <img src={pokemonDetail?.sprites?.front_default} alt={pokemonDetail?.name} />
         </div>
     )
 }

@@ -6,6 +6,7 @@ const Home = () =>{
     const [pokemons, setPokemons] = useState();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+    
     useEffect(()=>{
         fetchAllPokemons().then(pokemonData=>{
             if(pokemonData){
@@ -17,8 +18,9 @@ const Home = () =>{
             setLoading(false);
         })
     },[])
+
     return (
-        <div id="Home" className="theme__white">
+        <div id="Home" className="theme__white container">
             <Pokemons data={pokemons}/>
         </div>
     )
