@@ -19,24 +19,37 @@ const Pokemon = ({pokemonData}) =>{
             })
         }
     },[])
-    console.log(pokemonDetail)
+    
+    let pokemonId = pokemonDetail?.id.toString();
+
+    if(pokemonId?.length === 1 && pokemonId?.length !== undefined) {
+        pokemonId = "000" + pokemonId;
+    } else if(pokemonId?.length === 2 && pokemonId?.length !== undefined){
+        pokemonId = "00" + pokemonId;
+    }else if(pokemonId?.length === 3 && pokemonId?.length !== undefined){
+        pokemonId = "0" + pokemonId;
+    }else{
+        pokemonId = pokemonId;
+    }
+
+    console.log(pokemonId)
     return(
         <div className="pokemon">
-            <p className="pokemon-id-back">{pokemonDetail?.id}</p>
+            <p className="pokemon-id-back">#{pokemonId}</p>
             <div className="pokemon-image">
                 <img src={pokemonDetail?.sprites?.front_default} alt={pokemonDetail?.name} />
             </div>
             <div className="pokemon-content">
                 <div className="pokemon-body">
-                    <p className="pokemon-id">{pokemonDetail?.id}</p>
-                    <p className="pokemon-name">{pokemonDetail?.name}</p>    
+                    <p className="pokemon-id">#{pokemonId}</p>
+                    <h2 className="pokemon-name">{pokemonDetail?.name}</h2>    
                 </div>
                 <div className="pokemon-type">
                     <PokemonTypes pokemonDetail={pokemonDetail}/>
                 </div>
                 <div className="pokemon-stats">
-                    <p className="height">{pokemonDetail?.height}cm</p>
-                    <p className="weight">{pokemonDetail?.weight}kg</p>
+                    <p className="stat">{pokemonDetail?.height}cm</p>
+                    <p className="stat">{pokemonDetail?.weight}kg</p>
                 </div>
             </div>
         </div>
