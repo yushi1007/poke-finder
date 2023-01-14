@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import Card from "../components/Card";
+import Card from "../components/PokemonTypes";
 import {fetchAllPokemons} from '../api/Api';
 import Pokemons from "../components/Pokemons";
 const Home = () =>{
     const [pokemons, setPokemons] = useState();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    
+
     useEffect(()=>{
         fetchAllPokemons().then(pokemonData=>{
             if(pokemonData){
@@ -20,7 +20,7 @@ const Home = () =>{
     },[])
 
     return (
-        <div id="Home" className="theme__white container">
+        <div id="Home" className="home container">
             <Pokemons data={pokemons}/>
         </div>
     )

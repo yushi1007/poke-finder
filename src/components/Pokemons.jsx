@@ -23,7 +23,7 @@ const Pokemons = ({ data }) => {
   };
 
   return (
-    <div className="pokemons">
+    <div className="pokemons-box">
       {renderPokemons()}
     </div>
   );
