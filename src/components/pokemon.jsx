@@ -32,12 +32,12 @@ const Pokemon = ({pokemonData}) =>{
         pokemonId = pokemonId;
     }
 
-    console.log(pokemonId)
+    console.log(pokemonDetail)
     return(
         <div className="pokemon">
             <p className="pokemon-id-back">#{pokemonId}</p>
             <div className="pokemon-image">
-                <img src={pokemonDetail?.sprites?.front_default} alt={pokemonDetail?.name} />
+                <img src={pokemonDetail?.sprites?.other["official-artwork"].front_default} alt={pokemonDetail?.name} />
             </div>
             <div className="pokemon-content">
                 <div className="pokemon-body">
