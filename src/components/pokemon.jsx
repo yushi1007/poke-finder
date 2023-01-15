@@ -32,7 +32,9 @@ const Pokemon = ({pokemonData}) =>{
         pokemonId = pokemonId;
     }
 
-    console.log(pokemonDetail)
+    let pokemonHeight = pokemonDetail?.height/10;
+    let pokemonWeight = pokemonDetail?.weight/10;
+    
     return(
         <div className="pokemon">
             <p className="pokemon-id-back">#{pokemonId}</p>
@@ -48,8 +50,8 @@ const Pokemon = ({pokemonData}) =>{
                     <PokemonTypes pokemonDetail={pokemonDetail}/>
                 </div>
                 <div className="pokemon-stats">
-                    <p className="stat">{pokemonDetail?.height}cm</p>
-                    <p className="stat">{pokemonDetail?.weight}kg</p>
+                    <p className="stat">{pokemonHeight}m</p>
+                    <p className="stat">{pokemonWeight}kg</p>
                 </div>
             </div>
         </div>
