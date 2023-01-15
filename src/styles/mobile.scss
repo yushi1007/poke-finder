@@ -1,8 +1,14 @@
-@media (min-width: 640px) {
+@media (min-width: 470px) {
     .container {
         max-width: 640px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .home{
+        .pokemons-box {
+            grid-template-columns: 1fr 1fr;
+        }
     }
 }
 @media (min-width: 768px) {
@@ -10,6 +16,12 @@
         max-width: 768px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .home{
+        .pokemons-box {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
 }
 @media (min-width: 1024px) {
