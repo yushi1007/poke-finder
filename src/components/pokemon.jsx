@@ -34,10 +34,10 @@ const Pokemon = ({pokemonData}) =>{
 
     let pokemonHeight = pokemonDetail?.height/10;
     let pokemonWeight = pokemonDetail?.weight/10;
-    
+
     return(
         <div className="pokemon">
-            <p className="pokemon-id-back">#{pokemonId}</p>
+            <p className={`pokemon-id-back ${pokemonDetail?.types[0]?.type?.name}`}>#{pokemonId}</p>
             <div className="pokemon-image">
                 <img src={pokemonDetail?.sprites?.other["official-artwork"].front_default} alt={pokemonDetail?.name} />
             </div>
