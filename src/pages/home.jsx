@@ -1,27 +1,29 @@
 import { useEffect, useState } from "react";
 import Card from "../components/PokemonTypes";
-import {fetchAllPokemons} from '../api/Api';
 import Pokemons from "../components/Pokemons";
-const Home = () =>{
-    const [pokemons, setPokemons] = useState();
+import { fetchPokemonDetail } from "../api/Api";
+const Home = ({pokemons, searchTerm}) =>{
+    const [pokemonsData, setPokemonsData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-
     useEffect(()=>{
-        fetchAllPokemons().then(pokemonData=>{
-            if(pokemonData){
-                setPokemons(pokemonData);
-                setError(false);
-            }else{
-                setError(true);
-            }
-            setLoading(false);
-        })
-    },[])
+        setLoading(true);
+        fetchAllPokemonsInDetail();
+    },[pokemons])
 
+    const fetchAllPokemonsInDetail = async() =>{
+        await pokemons?.map(async(pokemon)=>{
+            if(pokemon?.url){
+                await fetchPokemonDetail(pokemon?.url).then(res=>{
+                    return res.data
+                })
+            }
+        });
+        setLoading(false);
+    }
     return (
         <div id="Home" className="home container">
-            <Pokemons data={pokemons}/>
+            <Pokemons data={pokemons} searchTerm={searchTerm}/>
         </div>
     )
 }

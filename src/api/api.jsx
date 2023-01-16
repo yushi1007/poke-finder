@@ -5,7 +5,7 @@ const API_BASE_URL = "https://pokeapi.co/api/v2/";
 // Fetch all the pokemons' name and link
 export const fetchAllPokemons = async () => {
     try {
-        const url = API_BASE_URL + "pokemon?limit=100000&offset=0";
+        const url = API_BASE_URL + "pokemon?limit=100&offset=0";
         const { data } = await axios(url);
         return data?.results;
     } catch (err) {
@@ -27,10 +27,13 @@ export const fetchPokemons = async (page, num=20) => {
 
 //Fetch all Pokedmons in details
 const getPokemonArray = async (data) => {
+    let p1 = performance.now();
     let pokemonArray = [];
     data.forEach(async (pokemon) => {
         pokemonArray.push(await fetchPokemonDetail(pokemon.url))
     })
+    let p2 = performance.now();
+    console.log(p2-p1)
     return pokemonArray;
 }
 
@@ -45,4 +48,3 @@ export const fetchPokemonDetail = async (url) => {
 };
 
 // Search Pokemons
- 

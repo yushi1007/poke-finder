@@ -3,21 +3,21 @@ import {fetchPokemonDetail} from '../api/Api';
 import PokemonTypes from "./PokemonTypes";
 const Pokemon = ({pokemonData}) =>{
     const [pokemonDetail, setPokemonDetail] = useState();
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(false);
 
     useEffect(()=>{
-        if(pokemonData?.url){
-            fetchPokemonDetail(pokemonData?.url).then(res=>{
-                if(res){
-                    setPokemonDetail(res.data)
-                    setError(false)
-                } else {
-                    setError(true)
-                }
-                setLoading(false)
-            })
-        }
+        // if(pokemonData?.url){
+        //     fetchPokemonDetail(pokemonData?.url).then(res=>{
+        //         if(res){
+        //             setPokemonDetail(res.data)
+        //             setError(false)
+        //         } else {
+        //             setError(true)
+        //         }
+        //         setLoading(false)
+        //     })
+        // }
     },[])
     
     let pokemonId = pokemonDetail?.id.toString();
