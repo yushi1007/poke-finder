@@ -43,3 +43,6 @@ export const fetchPokemonDetail = async (url) => {
         console.log(err);
     }
 };
+
+// Search Pokemons
+ 

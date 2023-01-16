@@ -216,11 +216,12 @@ a {
 
     .pokemon-id-back {
       position: absolute;
-      top: 1rem;
+      top: -0.25rem;
       left: 50%;
       transform: translateX(-50%);
       font-size: 6rem;
       font-weight: 800;
+      padding: 0px 100px 0px 100px;
       color: var(--color-gray);
       z-index: -1;
     }
