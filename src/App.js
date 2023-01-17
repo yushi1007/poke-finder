@@ -11,22 +11,17 @@ function App() {
   const [filteredPokemons, setFilteredPokemons] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [pageNum, setPageNum] = useState(1);
 
   const getPokemonList = async () => {
     let pokemonArray = [];
-    let num = await getPokemonsSize();
-    num = num ? num : 1000;
-    console.log(num)
-    for(let i = 1; i <= num; i++){
+
+    for(let i = 1; i <= 20; i++){
       let pokemonData = await fetchAllPokemons(i);
       if(pokemonData){
         pokemonArray.push(pokemonData);
       }
-      // try{
-      //   pokemonArray.push(await fetchAllPokemons(i));
-      // }catch(e){
-      //   console.log(e)
-      // }
+
     }
     setPokemons(pokemonArray);
     setFilteredPokemons(pokemonArray);
@@ -34,6 +29,7 @@ function App() {
   }
 
   useEffect(()=>{
+    getPokemonsSize();
     getPokemonList();
 },[])
 

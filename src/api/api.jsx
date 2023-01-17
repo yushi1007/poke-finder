@@ -2,11 +2,21 @@ import axios from "axios";
 
 const API_BASE_URL = "https://pokeapi.co/api/v2/";
 
+
+
+export const getPokedex = async () => {
+    try {
+        const url = API_BASE_URL + "pokemon?limit=100000&offset=0";
+        const { data } = await axios(url);
+        return data?.results;
+    } catch (err) {
+        console.log(err);
+    }
+};
 export const getPokemonsSize = async () => {
     try {
         const url = API_BASE_URL + "pokemon?limit=100000&offset=0";
         const { data } = await axios(url);
-        console.log(data?.count);
         return data?.count;
     } catch (err) {
         console.log(err);
@@ -18,7 +28,6 @@ export const fetchAllPokemons = async (id) => {
     try {
         const url = API_BASE_URL + `pokemon/${id}`;
         const result = await axios(url);
-        console.log(result)
         return result?.status === 200 ? result?.data : null; 
     } catch (err) {
         // console.log(err);
