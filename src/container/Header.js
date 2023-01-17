@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { MdOutlineClose } from "react-icons/md";
 import homeicon from "../assets/img/homeicon.png"
-const Header = () => {
+
+const Header = ({ handleSearch }) => {
   const [show, setShow] = useState(false);
 
   const toggleSearch = () => {
@@ -24,7 +25,13 @@ const Header = () => {
       )}
       <div className="search-box">
         <BiSearchAlt className="search-icon" />
-        <input type="text" placeholder="Search pokémon her..." />
+        <form>
+                    <input
+                        type="text"
+                        placeholder="Search pokémon her..."
+                        onChange={(event) => handleSearch(event)}
+                    />
+                </form>
       </div>
     </header>
   );
