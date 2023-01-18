@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Home from './pages/Home';
 import Header from './container/Header';
 import { fetchAllPokemons, getPokemonsSize } from '../src/api/Api';
+import Footer from './container/Footer';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -51,6 +52,7 @@ const handleSearch = (event) =>{
     <div className="App">
       <Header handleSearch={handleSearch} />
       <Home pokemons={filteredPokemons} searchTerm={searchTerm} />
+      <Footer />
     </div>
   );
 }
