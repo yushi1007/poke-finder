@@ -1,4 +1,5 @@
 import PokemonTypes from "./PokemonTypes";
+import comingSoonImage from "../assets/img/comingsoon.png";
 
 const Pokemon = ({
   pokemonId,
@@ -13,7 +14,7 @@ const Pokemon = ({
     <div className="pokemon">
       <p className={`pokemon-id-back ${pokemonStyleClassName}`}>#{pokemonId}</p>
       <div className="pokemon-image">
-        <img src={pokemonImage} alt={pokemonName} />
+        <img src={pokemonImage ? pokemonImage : comingSoonImage} alt={pokemonName} />
       </div>
       <div className="pokemon-content">
         <div className="pokemon-body">
