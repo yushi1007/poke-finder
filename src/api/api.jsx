@@ -5,7 +5,6 @@ export const getPokemonsSize = async () => {
     try {
         const url = API_BASE_URL + "pokemon?limit=100000&offset=0";
         const { data } = await axios(url);
-        console.log(data?.count);
         return data?.count;
     } catch (err) {
         console.log(err);

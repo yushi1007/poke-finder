@@ -1,6 +1,7 @@
 import PokemonTypes from "./PokemonTypes";
 import { useDispatch} from "react-redux";
 import {freezeBody} from '../util/util'
+import comingSoonImage from "../assets/img/comingsoon.png";
 const Pokemon = ({
   pokemonId,
   pokemonStyleClassName,
@@ -22,7 +23,7 @@ const Pokemon = ({
     <div className="pokemon" onClick={setPokemonId}>
       <p className={`pokemon-id-back ${pokemonStyleClassName}`}>#{pokemonId}</p>
       <div className="pokemon-image">
-        <img src={pokemonImage} alt={pokemonName} />
+        <img src={pokemonImage ? pokemonImage : comingSoonImage} alt={pokemonName} />
       </div>
       <div className="pokemon-content">
         <div className="pokemon-body">

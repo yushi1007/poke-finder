@@ -17,18 +17,12 @@ function App() {
   const getPokemonList = async () => {
     let pokemonArray = [];
     let num = await getPokemonsSize();
-    num = num ? num : 1000;
-    // console.log(num)
-    for(let i = 1; i <= 20; i++){
+    num = num ? num : 1008;
+    for(let i = 1; i <= 1008; i++){
       let pokemonData = await fetchAllPokemons(i);
       if(pokemonData){
         pokemonArray.push(pokemonData);
       }
-      // try{
-      //   pokemonArray.push(await fetchAllPokemons(i));
-      // }catch(e){
-      //   console.log(e)
-      // }
     }
     setPokemons(pokemonArray);
     setFilteredPokemons(pokemonArray);
