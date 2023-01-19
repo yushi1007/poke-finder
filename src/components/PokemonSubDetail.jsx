@@ -5,7 +5,7 @@ const PokemonSubDetail = ({data}) =>{
     const getAbilityDetail = (url) =>{
         fetchAbilityDetail(url)
         .then(res=>{
-            setAbilityData(res?.data)
+            setAbilityData(res)
         })
     }
     const renderMoves = ()=>{
