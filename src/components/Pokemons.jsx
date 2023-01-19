@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Pokemon from "./Pokemon";
 import {fetchPokemonDetail} from '../api/Api';
-
+import {formatId} from '../util/util'
 const Pokemons = ({ pokemon }) => {
   const [pokemonDetail, setPokemonDetail] = useState();
   const [loading, setLoading] = useState(true);
@@ -21,18 +21,7 @@ const Pokemons = ({ pokemon }) => {
   //     }
   // },[])
 
-  let pokemonId = pokemon?.id.toString();
-
-  if(pokemonId?.length === 1 && pokemonId?.length !== undefined) {
-      pokemonId = "000" + pokemonId;
-  } else if(pokemonId?.length === 2 && pokemonId?.length !== undefined){
-      pokemonId = "00" + pokemonId;
-  }else if(pokemonId?.length === 3 && pokemonId?.length !== undefined){
-      pokemonId = "0" + pokemonId;
-  }else{
-      pokemonId = pokemonId;
-  }
-
+  let pokemonId = formatId(pokemon?.id)
   let pokemonHeight = pokemon?.height/10;
   let pokemonWeight = pokemon?.weight/10;
 
@@ -46,6 +35,7 @@ const Pokemons = ({ pokemon }) => {
         pokemonTypes={pokemon?.types}
         pokemonHeight={pokemonHeight} 
         pokemonWeight={pokemonWeight}
+        id={pokemon?.id}
         />
     </div>
   );
