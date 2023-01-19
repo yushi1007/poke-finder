@@ -18,7 +18,7 @@ function App() {
     let pokemonArray = [];
     let num = await getPokemonsSize();
     num = num ? num : 1008;
-    for(let i = 1; i <= 100; i++){
+    for(let i = 1; i <= 151; i++){
       let pokemonData = await fetchAllPokemons(i);
       if(pokemonData){
         pokemonArray.push(pokemonData);
