@@ -3,7 +3,9 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import Home from './pages/Home';
 import Header from './container/Header';
-import { fetchAllPokemons, getPokemonsSize } from '../src/api/Api';
+import { fetchAllPokemons, getPokemonsSize } from './api/Api';
+import Footer from './container/Footer';
+import PokemonDetails from './pages/PokemonDetails';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,7 +23,6 @@ function App() {
       if(pokemonData){
         pokemonArray.push(pokemonData);
       }
-
     }
     setPokemons(pokemonArray);
     setFilteredPokemons(pokemonArray);
@@ -47,6 +48,8 @@ const handleSearch = (event) =>{
     <div className="App">
       <Header handleSearch={handleSearch} />
       <Home pokemons={filteredPokemons} searchTerm={searchTerm} />
+      <PokemonDetails/>
+      <Footer />
     </div>
   );
 }

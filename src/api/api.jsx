@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const API_BASE_URL = "https://pokeapi.co/api/v2/";
 
 
@@ -30,7 +29,7 @@ export const fetchAllPokemons = async (id) => {
         const result = await axios(url);
         return result?.status === 200 ? result?.data : null; 
     } catch (err) {
-        // console.log(err);
+        console.log(err);
     }
 };
 
@@ -60,6 +59,29 @@ export const fetchPokemonDetail = async (url) => {
     try {
         const data = await axios(url);
         return data;
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+//Fetch single Pokemon data
+export const getPokemonDataById = async (id) => {
+    try {
+        const url = API_BASE_URL + `pokemon/${id}`;
+        const result = await axios(url);
+        return result?.status === 200 ? result?.data : null; 
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+
+// fetch Ability detail
+
+export const fetchAbilityDetail = async (url) => {
+    try {
+        const result = await axios(url);
+        return result?.status === 200 ? result?.data : null; 
     } catch (err) {
         console.log(err);
     }

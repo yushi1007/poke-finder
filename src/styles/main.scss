@@ -210,6 +210,7 @@ a {
     position: relative;
     isolation: isolate;
     overflow: hidden;
+    cursor: pointer;
 
     .pokemon-id-back {
       position: absolute;
@@ -290,4 +291,112 @@ a {
       }
     }
   }
+}
+
+#PokemonDetailPage{
+  opacity: 0;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  top: 0;
+  left: 100%;
+  display: flex;
+  transition: .2s;
+  &.active{
+    opacity: 1;
+    left: 0;
+    transition: .3s;
+  }
+  .close{
+    position: fixed;
+    top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    background-color: rgb(255, 136, 136);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    right: 20px;
+  }
+  .PokemonDetailPageBody{
+    display: flex;
+    align-items: flex-end;
+    width: 1200px;
+    margin: 5% auto;
+  }
+}
+
+#pokemonDetailCard{
+  height: calc(100% - 180px);
+  width: 400px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 15px;
+  .body{
+    transform: translateY(-230px);
+    .info{
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      img{
+        height: 300px;
+        width: 300px;
+      }
+      b{
+        color: grey;
+        font-size: 16px;
+      }
+      h1{
+        font-size: 27px;
+        margin-top: 5px;
+      }
+      .type{
+        margin-top: 10px;
+        display: flex;
+        p{
+          margin: 0 3px;
+          padding: 5px 15px;
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: 15px;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+}
+
+#subDetailPanel{
+  height: 100%;
+  width: 100%;
+  margin-right: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 15px;
+  overflow-y: scroll;
+  .move{
+    background-color: rgb(241, 241, 241);
+    padding: 8px 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    p{
+      width: 100%;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+}
+
+/* ----------------------------------------------- */
+/* FOOTER */
+/* ----------------------------------------------- */
+.footer {
+  padding: 1rem;
+  background-color: #4398ff;
+  font-size: 14px;
 }
