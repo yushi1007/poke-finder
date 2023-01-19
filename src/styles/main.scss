@@ -293,6 +293,9 @@ a {
   }
 }
 
+/* ----------------------------------------------- */
+/* POKEMON DETAILS PAGE */
+/* ----------------------------------------------- */
 #PokemonDetailPage{
   opacity: 0;
   height: 100vh;
@@ -316,7 +319,7 @@ a {
     font-weight: bold;
     border: none;
     background-color: rgb(255, 136, 136);
-    color: white;
+    color: #fff;
     padding: 5px 15px;
     border-radius: 7px;
     cursor: pointer;
