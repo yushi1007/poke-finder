@@ -64,3 +64,16 @@ export const getPokemonDataById = async (id) => {
         console.log(err);
     }
 };
+
+
+// fetch Ability detail
+
+export const fetchAbilityDetail = async (url) => {
+    try {
+        const result = await axios(url);
+        console.log(result)
+        return result?.status === 200 ? result?.data : null; 
+    } catch (err) {
+        console.log(err);
+    }
+};

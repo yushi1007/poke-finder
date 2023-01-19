@@ -32,7 +32,8 @@ const PokemonDetails = () =>{
     }
 
     return(
-        <div id="PokemonDetailPage" className={`${pokemonId ? 'active':''}`} onClick={clearPokemonData}>
+        <div id="PokemonDetailPage" className={`${pokemonId ? 'active':''}`} >
+            <button onClick={clearPokemonData} className="close">Close</button>
             <div className="PokemonDetailPageBody">    
                 <PokemonSubDetail data={pokemonData}/>
                 <PokemonDetailCard data={pokemonData}/>
