@@ -8,20 +8,6 @@ const Pokemons = ({ pokemon }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  // useEffect(()=>{
-  //     if(pokemon?.url){
-  //         fetchPokemonDetail(pokemon?.url).then(res=>{
-  //             if(res){
-  //                 setPokemonDetail(res.data)
-  //                 setError(false)
-  //             } else {
-  //                 setError(true)
-  //             }
-  //             setLoading(false)
-  //         })
-  //     }
-  // },[])
-
   let pokemonId = formatId(pokemon?.id)
   let pokemonHeight = pokemon?.height/10;
   let pokemonWeight = pokemon?.weight/10;
@@ -43,17 +29,3 @@ const Pokemons = ({ pokemon }) => {
 };
 
 export default Pokemons;
-
-  // const [pokemonsData, setPokemonsData] = useState([]);
-  // const [page, setPage] = useState(1);
-  // const num = 20;
-
-  // useEffect(() => {
-  //   getPokemons(page, num);
-  // }, [page, num]);
-
-  // const getPokemons = (page, num) => {
-  //   fetchPokemons(page, num).then((data) => {
-  //     setPokemonsData(data);
-  //   });
-  // };
