@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Pokemon from "./Pokemon";
 import {fetchPokemonDetail} from '../api/Api';
 import {formatId} from '../util/util'
+
 const Pokemons = ({ pokemon }) => {
   const [pokemonDetail, setPokemonDetail] = useState();
   const [loading, setLoading] = useState(true);
