@@ -4,14 +4,15 @@ import { MdOutlineClose } from "react-icons/md";
 import homeicon from "../assets/img/homeicon.png";
 import { getPokedex } from "../api/Api";
 import Dropdown from "../components/Dropdown";
+import SearchBox from "../components/SearchBox";
 
 const Header = ({ handleSearch }) => {
-    const [show, setShow] = useState(false);
-    const [pokedex, setPokedex] = useState([]);
+  const [show, setShow] = useState(false);
+  const [pokedex, setPokedex] = useState([]);
 
-    const toggleSearch = () => {
-        setShow((show) => !show);
-    };
+  const toggleSearch = () => {
+    setShow((show) => !show);
+  };
 
   return (
     <header
@@ -28,14 +29,7 @@ const Header = ({ handleSearch }) => {
       ) : (
         <BiSearchAlt className="search-icon" onClick={toggleSearch} />
       )}
-      <div className="search-box">
-        <BiSearchAlt className="search-icon" />
-        <input
-          type="text"
-          placeholder="Search pokémon her..."
-          onChange={(event) => handleSearch(event)}
-        />
-      </div>
+      <SearchBox handleSearch={handleSearch} />
     </header>
   );
 };
