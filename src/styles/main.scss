@@ -196,42 +196,55 @@ a {
 /* POKEMON CARD */
 /* ----------------------------------------------- */
 .pokemons-box {
-  padding: 2rem;
+  margin-top: 5rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  
 
   .pokemon-card {
     border-radius: 1rem;
     background-color: var(--color-white);
     box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.25);
-    padding-block: 1rem;
     text-transform: uppercase;
+    margin: 50px 0px 25px 0;
     position: relative;
     isolation: isolate;
-    overflow: hidden;
     cursor: pointer;
 
+    .pokemon {
+      overflow: hidden;
+      padding-bottom: 1rem;
+      border-radius: 1rem 1rem 0rem 0rem;
+    }
+
     .pokemon-id-back {
-      position: absolute;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       top: -0.25rem;
       left: 50%;
       transform: translateX(-50%);
       font-size: 6rem;
       font-weight: 800;
-      padding: 0px 100px 0px 100px;
+      padding: 0 25px 0 25px;
       color: var(--color-gray);
       z-index: -1;
     }
 
     .pokemon-image {
-      padding-inline: 1rem;
       display: flex;
+      position: absolute;
       justify-content: center;
+      padding-inline: 1rem;
+      bottom: 9.5rem;
+      left: 50%;
+      transform: translateX(-50%);
 
       img {
         width: 100%;
-        max-width: 6rem;
+        max-width: 9rem;
       }
     }
 
@@ -296,7 +309,7 @@ a {
 /* ----------------------------------------------- */
 /* POKEMON DETAILS PAGE */
 /* ----------------------------------------------- */
-#PokemonDetailPage{
+#PokemonDetailPage {
   opacity: 0;
   height: 100vh;
   position: fixed;
@@ -306,13 +319,13 @@ a {
   top: 0;
   left: 100%;
   display: flex;
-  transition: .2s;
-  &.active{
+  transition: 0.2s;
+  &.active {
     opacity: 1;
     left: 0;
-    transition: .3s;
+    transition: 0.3s;
   }
-  .close{
+  .close {
     position: fixed;
     top: 20px;
     font-size: 20px;
@@ -325,7 +338,7 @@ a {
     cursor: pointer;
     right: 20px;
   }
-  .PokemonDetailPageBody{
+  .PokemonDetailPageBody {
     display: flex;
     align-items: flex-end;
     width: 1200px;
@@ -333,35 +346,35 @@ a {
   }
 }
 
-#pokemonDetailCard{
+#pokemonDetailCard {
   height: calc(100% - 180px);
   width: 400px;
   position: relative;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   padding: 15px;
-  .body{
+  .body {
     transform: translateY(-230px);
-    .info{
+    .info {
       display: flex;
       flex-flow: column;
       align-items: center;
-      img{
+      img {
         height: 300px;
         width: 300px;
       }
-      b{
+      b {
         color: grey;
         font-size: 16px;
       }
-      h1{
+      h1 {
         font-size: 27px;
         margin-top: 5px;
       }
-      .type{
+      .type {
         margin-top: 10px;
         display: flex;
-        p{
+        p {
           margin: 0 3px;
           padding: 5px 15px;
           font-weight: bold;
@@ -374,7 +387,7 @@ a {
   }
 }
 
-#subDetailPanel{
+#subDetailPanel {
   height: 100%;
   width: 100%;
   margin-right: 20px;
@@ -382,12 +395,12 @@ a {
   border-radius: 10px;
   padding: 15px;
   overflow-y: scroll;
-  .move{
+  .move {
     background-color: rgb(241, 241, 241);
     padding: 8px 10px;
     margin: 5px 0;
     border-radius: 5px;
-    p{
+    p {
       width: 100%;
       font-weight: bold;
       font-size: 20px;
