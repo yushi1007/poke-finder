@@ -207,7 +207,7 @@ a {
     background-color: var(--color-white);
     box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.25);
     text-transform: uppercase;
-    margin: 50px 0px 25px 0;
+    margin: 75px 0px 25px 0;
     position: relative;
     isolation: isolate;
     cursor: pointer;
@@ -238,13 +238,13 @@ a {
       position: absolute;
       justify-content: center;
       padding-inline: 1rem;
-      bottom: 9.5rem;
+      bottom: 9rem;
       left: 50%;
       transform: translateX(-50%);
 
       img {
         width: 100%;
-        max-width: 9rem;
+        max-width: 10rem;
       }
     }
 
