@@ -1,7 +1,6 @@
 import Pokemons from "../components/Pokemons";
-import { filterPokemonsByName } from "../util/util";
 
-const Home = ({ pokemons, searchTerm }) => {
+const Home = ({ pokemons }) => {
   const renderPokemons = () => {
     return pokemons?.map((pokemon, index) => {
       return <Pokemons key={index} pokemon={pokemon} />;
