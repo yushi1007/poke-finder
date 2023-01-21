@@ -195,13 +195,19 @@ a {
 /* ----------------------------------------------- */
 /* POKEMON CARD */
 /* ----------------------------------------------- */
-.pokemons-box {
-  margin-top: 5rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  
+.pokemons-container {
+ display: flex;
+ margin-top: 2rem;
+}
 
+.pokemons-box {
+  grid-gap: 10px;
+  border: 1px solid transparent;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 75%;
+  
   .pokemon-card {
     border-radius: 1rem;
     background-color: var(--color-white);
@@ -304,6 +310,18 @@ a {
       }
     }
   }
+}
+
+/* ----------------------------------------------- */
+/* FILTER AND SORT SECTION */
+/* ----------------------------------------------- */
+.filter-section {
+  width: 25%;
+
+  .filter {
+    
+  }
+
 }
 
 /* ----------------------------------------------- */

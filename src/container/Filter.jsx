@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Filter = () => {
   return (
-    <div>Filter + Sort</div>
-  )
-}
+    <div className="filter">
+      <h3>Filter + Sort</h3>
+    </div>
+  );
+};
 
-export default Filter
+export default Filter;
