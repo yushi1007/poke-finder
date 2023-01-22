@@ -196,8 +196,8 @@ a {
 /* POKEMON CARD */
 /* ----------------------------------------------- */
 .pokemons-container {
- display: flex;
- margin-top: 2rem;
+  display: flex;
+  margin-top: 2rem;
 }
 
 .pokemons-box {
@@ -207,7 +207,7 @@ a {
   gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
   width: 75%;
-  
+
   .pokemon-card {
     border-radius: 1rem;
     background-color: var(--color-white);
@@ -317,11 +317,25 @@ a {
 /* ----------------------------------------------- */
 .filter-section {
   width: 25%;
+  padding: 72px 32px 0 32px;
 
   .filter {
-    
-  }
 
+    .filter-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #e6e8ec;
+
+      h3{
+        font-size: 24px;
+      }
+    }
+  }
+  .type-filter {
+
+  }
 }
 
 /* ----------------------------------------------- */
