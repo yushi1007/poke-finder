@@ -1,3 +1,4 @@
+import React from "react";
 import Pokemons from "../components/Pokemons";
 import Filter from "../container/Filter";
 
@@ -11,11 +12,10 @@ const Home = ({ pokemons }) => {
   return (
     <div id="Home" className="pokemons-container container">
       <div className="filter-section">
-        <Filter />
+        <Filter
+        />
       </div>
-      <div className="pokemons-box">
-        {renderPokemons()}
-      </div>
+      <div className="pokemons-box">{renderPokemons()}</div>
     </div>
   );
 };

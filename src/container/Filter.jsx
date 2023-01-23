@@ -1,5 +1,6 @@
 import React from "react";
 import FilterType from "../components/FilterType";
+import { typeOptions } from "../data/Data";
 
 const Filter = () => {
   return (
@@ -7,7 +8,10 @@ const Filter = () => {
       <div className="filter-header">
         <h3>Filter + Sort</h3>
       </div>
-      <FilterType />
+      <FilterType 
+        typeOptions={typeOptions}
+        label="Select Type"
+      />
     </div>
   );
 };
