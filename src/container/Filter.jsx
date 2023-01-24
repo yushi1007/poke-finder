@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import FilterType from "../components/FilterType";
 import { typeOptions } from "../data/Data";
 
-const Filter = ({ handleTypeFilter }) => {
+const Filter = ({ handleTypeFilter, setFilterBy, filterBy }) => {
   const [show, setShow] = useState(false);
-  const [selected, setSelected] = useState("Any Type");
-console.log(selected)
+
   const handleDropdownClick = () => {
     setShow((show) => !show);
   }
@@ -21,8 +20,8 @@ console.log(selected)
         handleDropdownClick={handleDropdownClick}
         show={show}
         setShow={setShow}
-        selected={selected}
-        setSelected={setSelected}
+        filterBy={filterBy}
+        setFilterBy={setFilterBy}
         handleTypeFilter={handleTypeFilter}
       />
     </div>

@@ -6,8 +6,8 @@ const FilterType = ({
   show,
   handleDropdownClick,
   setShow,
-  selected,
-  setSelected,
+  filterBy,
+  setFilterBy,
   handleTypeFilter
 }) => {
   return (
@@ -20,7 +20,7 @@ const FilterType = ({
           onClick={handleDropdownClick}
           className="input"
         >
-          {selected}
+          {filterBy}
         </div>
         {show && (
           <div className="option">
@@ -30,11 +30,11 @@ const FilterType = ({
                   id={type.name}
                   key={type.name}
                   onClick={(e) => {
-                    setSelected(type.name);
+                    setFilterBy(type.name);
                     setShow(false);
                     handleTypeFilter(e);
                   }}
-                  onChange={(e) => handleTypeFilter(e)}
+                  onChange={(e) => handleTypeFilter(e.currentTarget.value)}
                 >
                 {type.image && (<img src={type.image} alt="type image" />)}
                   {type.name}
