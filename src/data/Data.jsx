@@ -3,7 +3,7 @@ import typeFire from "../assets/img/fire.png";
 import typeWater from "../assets/img/water.png";
 import typeGrass from "../assets/img/grass.png";
 import typeFlying from "../assets/img/flying.png";
-import typeFighting from "../assets/img/flying.png";
+import typeFighting from "../assets/img/fighting.png";
 import typePoison from "../assets/img/poison.png";
 import typeElectric from "../assets/img/electric.png";
 import typeGround from "../assets/img/ground.png";
@@ -18,6 +18,10 @@ import typeDark from "../assets/img/dark.png";
 import typeFairy from "../assets/img/fairy.png";
 
 export const typeOptions = [
+  {
+    name: "Any type",
+    image: "",
+  },
   {
     name: "Normal",
     image: typeNormal,

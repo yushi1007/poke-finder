@@ -1,5 +1,4 @@
 import './App.scss';
-import axios from 'axios';
 import { useEffect, useState } from "react";
 import Home from './pages/Home';
 import Header from './container/Header';
@@ -44,10 +43,26 @@ const handleSearch = (event) =>{
   setFilteredPokemons(result);
 }
 
+const handleTypeFilter = (event) => {
+  const typeId = event.currentTarget.id;
+  console.log(typeId);
+  let typeResult = [];
+  typeResult = pokemons.filter((data) => {
+    if(typeId === "Fire"){
+      setFilteredPokemons(data);
+    }else{
+      const types = data.types.map(type => type.type.name);
+      if(types.some(type => type.includes(typeId))) {
+        setFilteredPokemons(data);
+      }
+    }
+  })
+}
+
   return (
     <div className="App">
       <Header handleSearch={handleSearch} />
-      <Home pokemons={filteredPokemons} searchTerm={searchTerm} />
+      <Home pokemons={filteredPokemons} searchTerm={searchTerm} handleTypeFilter={handleTypeFilter} />
       <PokemonDetails/>
       <Footer />
     </div>
