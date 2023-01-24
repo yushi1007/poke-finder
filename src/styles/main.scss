@@ -368,7 +368,12 @@ a {
         pointer-events: none;
       }
 
-      input {
+      &.active::before {
+        top: 22px;
+        transform: rotate(-225deg);
+      }
+
+      .input {
         position: absolute;
         top: 0;
         left: 0;
@@ -393,7 +398,6 @@ a {
         box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
         border-radius: 10px;
         overflow: hidden;
-        // display: none;
 
         div {
           padding: 12px 20px;
