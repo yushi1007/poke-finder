@@ -8,7 +8,7 @@ import PokemonDetails from "./pages/PokemonDetails";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterBy, setFilterBy] = useState("Any type");
+  const [filterTerm, setFilterTerm] = useState("");
   const [pokemons, setPokemons] = useState();
   const [filteredPokemons, setFilteredPokemons] = useState();
   const [error, setError] = useState(false);
@@ -39,28 +39,26 @@ function App() {
   };
 
   const handleTypeFilter = (event) => {
-    setSearchTerm(event.currentTarget.id);
+    console.log(event.target.innerText)
+    setFilterTerm(event.target.innerText);
   };
 
-  const searchPokemons = pokemons?.filter((pokemon) =>
-    pokemon?.name?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // const searchPokemons = pokemons?.filter((pokemon) =>
+  //   pokemon?.name?.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
 
-  // const filterPokemons = searchPokemons?.filter((pokemon) => {
-  //   console.log(pokemon);
-  //   if (filterBy.includes("Any Type")) {
-  //     return pokemon;
-  //   }
-  // });
+  const filterPokemon = () => {
+    console.log(pokemons)
+  }
   
   return (
     <div className="App">
       <Header handleSearch={handleSearch} />
       <Home
-        pokemons={searchPokemons}
-        searchTerm={searchTerm}
-        filterBy={filterBy}
-        setFilterBy={setFilterBy}
+        pokemons={filterTerm ? filteredPokemons : pokemons}
+        // searchTerm={searchTerm}
+        filterTerm={filterTerm}
+        setFilterTerm={setFilterTerm}
         handleTypeFilter={handleTypeFilter}
       />
       <PokemonDetails />
