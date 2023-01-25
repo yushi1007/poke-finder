@@ -23,7 +23,7 @@ export const getPokemonsSize = async () => {
 };
 
 // Fetch all the pokemons' name and link
-export const fetchAllPokemons = async (id) => {
+export const fetchSinglePokemonDetail = async (id) => {
     try {
         const url = API_BASE_URL + `pokemon/${id}`;
         const result = await axios(url);
@@ -37,6 +37,20 @@ export const fetchAllPokemons = async (id) => {
 export const fetchPokemons = async (page, num=20) => {
     try {
         const url = API_BASE_URL + `pokemon?limit=${num}&offset=${page - 1}`;
+        const { data } = await axios(url);
+        let results = await getPokemonArray(data?.results)
+        return results;
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+
+// Get all pokemons
+
+export const getAllPokemonData = async (page) => {
+    try {
+        const url = API_BASE_URL + `pokemon?limit=1000000&offset=0`;
         const { data } = await axios(url);
         let results = await getPokemonArray(data?.results)
         return results;

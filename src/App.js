@@ -2,7 +2,7 @@ import "./App.scss";
 import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import Header from "./container/Header";
-import { fetchAllPokemons, getPokemonsSize } from "./api/Api";
+import { fetchSinglePokemonDetail, getPokemonsSize, getAllPokemonData } from "./api/Api";
 import Footer from "./container/Footer";
 import PokemonDetails from "./pages/PokemonDetails";
 
@@ -14,12 +14,13 @@ function App() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [pageNum, setPageNum] = useState(1);
+  const [allPokemons, setAllPokemons] = useState([]);
 
   const getPokemonList = async () => {
     let pokemonArray = [];
 
-    for (let i = 1; i <= 20; i++) {
-      let pokemonData = await fetchAllPokemons(i);
+    for (let i = 1; i <= 100; i++) {
+      let pokemonData = await fetchSinglePokemonDetail(i);
       if (pokemonData) {
         pokemonArray.push(pokemonData);
       }
@@ -29,18 +30,37 @@ function App() {
     setLoading(false);
   };
 
+  const getAllPokemons = async() =>{
+    let pokemons = await getAllPokemonData();
+    setAllPokemons(pokemons)
+  }
+
   useEffect(() => {
     getPokemonsSize();
     getPokemonList();
+    getAllPokemons();
   }, []);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const handleTypeFilter = (event) => {
-    console.log(event.target.innerText)
-    setFilterTerm(event.target.innerText);
+  // handle filter type click
+  const handleTypeFilter = async(event) => {
+    let filterType = event.target.innerText;
+    setFilterTerm(filterType);
+    // setFilteredPokemons
+    let pokemons = allPokemons.filter(pokemon=>{
+      let result = false;
+      pokemon?.data?.types.forEach(type=>{
+        if(!result){
+          result = type.type.name.toUpperCase() === filterType.toUpperCase()
+        }
+      })
+      return result;
+    })
+    console.log(pokemons)
+    setFilteredPokemons(pokemons)
   };
 
   // const searchPokemons = pokemons?.filter((pokemon) =>

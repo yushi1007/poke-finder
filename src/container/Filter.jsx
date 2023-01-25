@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FilterType from "../components/FilterType";
 import { typeOptions } from "../data/Data";
 
-const Filter = ({ handleTypeFilter, setFilterBy, filterBy }) => {
+const Filter = ({ handleTypeFilter, setFilterTerm, filterTerm }) => {
   const [show, setShow] = useState(false);
 
   const handleDropdownClick = () => {
@@ -20,8 +20,8 @@ const Filter = ({ handleTypeFilter, setFilterBy, filterBy }) => {
         handleDropdownClick={handleDropdownClick}
         show={show}
         setShow={setShow}
-        filterBy={filterBy}
-        setFilterBy={setFilterBy}
+        filterTerm={filterTerm}
+        setFilterTerm={setFilterTerm}
         handleTypeFilter={handleTypeFilter}
       />
     </div>

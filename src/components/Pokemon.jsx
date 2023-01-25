@@ -20,7 +20,7 @@ const Pokemon = ({
     freezeBody()
   }
   return (
-    <div className="pokemon" onClick={setPokemonId}>
+    <div className="pokemon pokemon-card" onClick={setPokemonId}>
       <p className={`pokemon-id-back ${pokemonStyleClassName}`}>#{pokemonId}</p>
       <div className="pokemon-image">
         <img src={pokemonImage ? pokemonImage : comingSoonImage} alt={pokemonName} />
