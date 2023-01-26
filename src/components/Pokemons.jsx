@@ -16,7 +16,7 @@ const Pokemons = ({ pokemons }) => {
       return(
         <Pokemon
           pokemonId={pokemonId}
-          pokemonStyleClassName={pokemon} 
+          pokemonStyleClassName={pokemon?.types[0]?.type?.name} 
           pokemonImage={pokemon?.sprites?.other["official-artwork"]?.front_default}
           pokemonName={pokemon?.name}
           pokemonTypes={pokemon?.types}
