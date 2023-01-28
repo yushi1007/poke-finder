@@ -8,7 +8,6 @@ import SearchBox from "../components/SearchBox";
 
 const Header = ({ handleSearch }) => {
   const [show, setShow] = useState(false);
-  const [pokedex, setPokedex] = useState([]);
 
   const toggleSearch = () => {
     setShow((show) => !show);

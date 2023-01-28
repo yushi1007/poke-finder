@@ -1,10 +1,8 @@
 import React, {useEffect, useState } from "react";
 import Pokemon from "./Pokemon";
-import {fetchPokemonDetail} from '../api/Api';
 import {formatId} from '../util/util'
 
 const Pokemons = ({ pokemons }) => {
-  const [pokemonDetail, setPokemonDetail] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 

@@ -16,7 +16,6 @@ const Pokemon = ({
 
   const setPokemonId = () =>{
     dispatch({ pokemonId: id ,type: "SET_SELECTED_POKEMON" });
-    console.log(id)
     freezeBody()
   }
   return (
