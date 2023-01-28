@@ -1,8 +1,6 @@
 import axios from "axios";
 const API_BASE_URL = "https://pokeapi.co/api/v2/";
 
-
-
 export const getPokedex = async () => {
     try {
         const url = API_BASE_URL + "pokemon?limit=100000&offset=0";
@@ -45,9 +43,7 @@ export const fetchPokemons = async (page, num=20) => {
     }
 };
 
-
 // Get all pokemons
-
 export const getAllPokemonData = async (page) => {
     try {
         const url = API_BASE_URL + `pokemon?limit=1000000&offset=0`;

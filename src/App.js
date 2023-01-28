@@ -13,7 +13,6 @@ function App() {
   const [filteredPokemons, setFilteredPokemons] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [pageNum, setPageNum] = useState(1);
   const [allPokemons, setAllPokemons] = useState([]);
 
   const getPokemonList = async () => {
@@ -45,27 +44,31 @@ function App() {
     setSearchTerm(event.target.value);
   };
 
-  // handle filter type click
   const handleTypeFilter = async(event) => {
-    let filterType = event.target.innerText;
-    setFilterTerm(filterType);
-    // setFilteredPokemons
-    let pokemons = allPokemons.filter(pokemon=>{
-      let result = false;
-      pokemon?.data?.types.forEach(type=>{
-        if(!result){
-          result = type.type.name.toUpperCase() === filterType.toUpperCase()
-        }
-      })
-      return result;
-    })
-    console.log(pokemons)
-    setFilteredPokemons(pokemons)
+      let filterType = event.target.innerText;
+      setFilterTerm(filterType);
   };
 
-  // const searchPokemons = pokemons?.filter((pokemon) =>
-  //   pokemon?.name?.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
+  const searchPokemons = pokemons?.filter((pokemon) =>
+    pokemon?.name?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // const handleTypeFilter = async(event) => {
+  //   let filterType = event.target.innerText;
+  //   setFilterTerm(filterType);
+  //   let pokemons = filteredPokemons.filter(pokemon=>{
+  //     let result = false;
+  //     pokemon?.types?.forEach(type=>{
+  //       console.log(type)
+  //       if(!result){
+  //         result = type.type.name.toUpperCase() === filterType.toUpperCase()
+  //         console.log(result)
+  //       }
+  //     })
+  //     return result;
+  //   })
+  //   setFilteredPokemons(pokemons)
+  // };
 
   const filterPokemon = () => {
     console.log(pokemons)
@@ -75,7 +78,7 @@ function App() {
     <div className="App">
       <Header handleSearch={handleSearch} />
       <Home
-        pokemons={filterTerm ? filteredPokemons : pokemons}
+        pokemons={searchPokemons}
         // searchTerm={searchTerm}
         filterTerm={filterTerm}
         setFilterTerm={setFilterTerm}

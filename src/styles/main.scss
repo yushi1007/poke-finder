@@ -349,7 +349,7 @@ a {
       height: 45px;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         right: 20px;
         top: 15px;
@@ -432,6 +432,7 @@ a {
   width: 100%;
   top: 0;
   left: 100%;
+  z-index: 10000;
   display: flex;
   transition: 0.2s;
   &.active {
@@ -526,7 +527,9 @@ a {
 /* FOOTER */
 /* ----------------------------------------------- */
 .footer {
+  bottom: 0;
+  width: 100%;
   padding: 1rem;
-  background-color: #4398ff;
   font-size: 14px;
+  background-color: #4398ff;
 }
