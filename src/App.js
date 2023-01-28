@@ -53,6 +53,7 @@ function App() {
     pokemon?.name?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  
   // const handleTypeFilter = async(event) => {
   //   let filterType = event.target.innerText;
   //   setFilterTerm(filterType);
