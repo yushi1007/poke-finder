@@ -1,10 +1,10 @@
 import React from "react";
 
-const PokemonTypes = ({ pokemonDetail }) => {
-  const pokemonTypes = pokemonDetail?.types.map((pokemonType, index) => {
+const PokemonTypes = ({ pokemonTypes }) => {
+  const pokemonTypesName = pokemonTypes?.map((pokemonType, index) => {
     return <p key={index} className={`${pokemonType?.type?.name} type`}>{pokemonType?.type?.name}</p>;
   });
-  return <React.Fragment>{pokemonTypes}</React.Fragment>;
+  return <React.Fragment>{pokemonTypesName}</React.Fragment>;
 };
 
 export default PokemonTypes;
