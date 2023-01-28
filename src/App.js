@@ -7,11 +7,11 @@ import Footer from "./container/Footer";
 import PokemonDetails from "./pages/PokemonDetails";
 
 function App() {
+  const [options, setOptions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterTerm, setFilterTerm] = useState("");
   const [pokemons, setPokemons] = useState();
   const [filteredPokemons, setFilteredPokemons] = useState();
-  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [allPokemons, setAllPokemons] = useState([]);
 
@@ -25,10 +25,10 @@ function App() {
       }
     }
     setPokemons(pokemonArray);
-    setFilteredPokemons(pokemonArray);
+    setOptions(pokemonArray);
     setLoading(false);
   };
-
+  console.log(options)
   const getAllPokemons = async() =>{
     let pokemons = await getAllPokemonData();
     setAllPokemons(pokemons)
@@ -76,7 +76,12 @@ function App() {
   
   return (
     <div className="App">
-      <Header handleSearch={handleSearch} />
+      <Header 
+        handleSearch={handleSearch} 
+        options={options}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
       <Home
         pokemons={searchPokemons}
         // searchTerm={searchTerm}

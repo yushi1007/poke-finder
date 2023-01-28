@@ -13,6 +13,7 @@ const Pokemons = ({ pokemons }) => {
       let pokemonWeight = pokemon?.weight/10;
       return(
         <Pokemon
+          key={index}
           pokemonId={pokemonId}
           pokemonStyleClassName={pokemon?.types[0]?.type?.name} 
           pokemonImage={pokemon?.sprites?.other["official-artwork"]?.front_default}
