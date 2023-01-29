@@ -27,7 +27,7 @@ const SearchBox = ({ pokemons, setBackdrop }) => {
 
   const handleSearchClick = () => {
     setShow(!show);
-    setBackdrop(false);
+    setBackdrop();
   }
 
   return (

@@ -5,6 +5,9 @@ import SearchBox from "../components/SearchBox";
 const Header = ({ pokemons }) => {
   const [backdrop, setBackdrop] = useState(false);
 
+  const handleBackDrop = () =>{
+    setBackdrop(!backdrop)
+  }
   return (
   <React.Fragment>
     <header className="header container">
@@ -14,9 +17,9 @@ const Header = ({ pokemons }) => {
           <span>Poké Finder</span>
         </a>
       </div>
-      <SearchBox pokemons={pokemons} setBackdrop={setBackdrop} />
+      <SearchBox pokemons={pokemons} setBackdrop={handleBackDrop} />
     </header>
-    {backdrop && <div className="background"></div>}
+    {backdrop && <div className="background" onClick={handleBackDrop}></div>}
   </React.Fragment>
   );
 };
