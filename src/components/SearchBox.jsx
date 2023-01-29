@@ -4,37 +4,38 @@ import { BiSearchAlt } from "react-icons/bi";
 import Dropdown from "./Dropdown";
 
 const SearchBox = ({ pokemons }) => {
+  const [show, setShow] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const ref = useRef(null);
 
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", handleClickOutside);
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+  })
 
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   }
-  // })
-
-  // const handleClickOutside = event => {
-  //   if (ref.current && !ref.current.contains(event.target)) {
-  //     onClickOutside && onClickOutside();
-  //   }
-  // }
+  const handleClickOutside = event => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setShow(false);
+    }
+  }
 
   const onChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
   return (
-    <form className="search-box">
+    <form ref={ref} className="search-box">
       <BiSearchAlt className="search-icon" />
       <input
         type="text"
+        onClick={() => setShow(!show)}
         placeholder="Search pokémon here..."
         value={searchTerm}
         onChange={onChange}
       />
-      <div className="auto-search-box">
+     {show && <div className="auto-search-box">
         {pokemons
           ?.filter((pokemon) => {
             const searchName = searchTerm.toLowerCase();
@@ -50,11 +51,12 @@ const SearchBox = ({ pokemons }) => {
             return (
               <Dropdown 
                 pokemon={pokemon}
+                setShow={setShow}
                 key={index}
               />
             );
           })}
-      </div>
+      </div>}
     </form>
   );
 };

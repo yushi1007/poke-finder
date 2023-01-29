@@ -1,12 +1,13 @@
 import { useDispatch } from "react-redux";
 import {freezeBody} from '../util/util'
 
-const Dropdown = ({ pokemon }) => {
+const Dropdown = ({ pokemon, setShow }) => {
     const dispatch = useDispatch();
 
     const setPokemonId = () =>{
       dispatch({ pokemonId: pokemon?.id ,type: "SET_SELECTED_POKEMON" });
       freezeBody()
+      setShow(false)
     }
 
   return (
