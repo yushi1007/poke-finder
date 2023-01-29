@@ -95,4 +95,14 @@ export const fetchAbilityDetail = async (url) => {
     } catch (err) {
         console.log(err);
     }
+
+};
+
+export const fetchPokemonDescription = async (url) => {
+    try {
+        const result = await axios(url);
+        return result?.status === 200 ? result?.data : null; 
+    } catch (err) {
+        console.log(err);
+    }
 };

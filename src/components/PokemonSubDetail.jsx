@@ -1,23 +1,20 @@
-import { useState } from 'react'
-import { fetchAbilityDetail } from '../api/Api'
+import {useDispatch} from "react-redux";
+import { freezeBody } from "../util/util";
 const PokemonSubDetail = ({data}) =>{
-    const [abilityData, setAbilityData] = useState();
-    const getAbilityDetail = (url) =>{
-        fetchAbilityDetail(url)
-        .then(res=>{
-            setAbilityData(res)
-        })
+    const dispatch = useDispatch();
+    const setAbilityUrl = (url) =>{
+        dispatch({ abilityUrl: url ,type: "SET_ABILITY_URL" });
+        freezeBody()
     }
     const renderMoves = ()=>{
         return data?.moves.map((move,index)=>{
             return(
-            <div className="move" onClick={()=>getAbilityDetail(move?.move?.url)} key={index}>
+            <div className="move" onClick={()=>setAbilityUrl(move?.move?.url)} key={index}>
                 <p>{move?.move?.name}</p>
             </div>
             )
         })
     }
-
     return(
         <div id="subDetailPanel">
             {renderMoves()}
