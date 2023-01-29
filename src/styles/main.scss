@@ -478,17 +478,23 @@ a {
   }
   .close {
     position: fixed;
-    top: 20px;
-    font-size: 20px;
+    top: 0px;
+    right: 0px;
+    font-size: 21px;
     font-weight: bold;
     border: none;
-    background-color: rgb(255, 136, 136);
+    background-color: rgb(255, 55, 55);
     color: #fff;
-    padding: 5px 15px;
-    border-radius: 7px;
+    padding: 8px 30px;
+    // border-radius: 7px;
+    border-bottom-left-radius: 20px;
     cursor: pointer;
-    right: 20px;
     z-index: 10;
+    opacity: 0.65;
+    transition: .3s;
+    &:hover{
+      opacity: 1;
+    }
   }
   .PokemonDetailPageBody {
     display: flex;
