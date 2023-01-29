@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import Dropdown from "./Dropdown";
 
-const SearchBox = ({ pokemons }) => {
+const SearchBox = ({ pokemons, setBackdrop }) => {
   const [show, setShow] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const ref = useRef(null);
@@ -25,12 +25,17 @@ const SearchBox = ({ pokemons }) => {
     setSearchTerm(event.target.value);
   };
 
+  const handleSearchClick = () => {
+    setShow(!show);
+    setBackdrop(false);
+  }
+
   return (
     <form ref={ref} className="search-box">
       <BiSearchAlt className="search-icon" />
       <input
         type="text"
-        onClick={() => setShow(!show)}
+        onClick={handleSearchClick}
         placeholder="Search pokémon here..."
         value={searchTerm}
         onChange={onChange}
