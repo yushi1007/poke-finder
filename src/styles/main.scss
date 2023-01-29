@@ -28,6 +28,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 .normal {
@@ -430,14 +431,14 @@ a {
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   width: 100%;
-  top: 0;
-  left: 100%;
+  top: 100%;
+  left: 0;
   z-index: 10000;
   display: flex;
-  transition: 0.2s;
+  transition: 0.3s;
   &.active {
     opacity: 1;
-    left: 0;
+    top: 0;
     transition: 0.3s;
   }
   .close {
@@ -452,6 +453,7 @@ a {
     border-radius: 7px;
     cursor: pointer;
     right: 20px;
+    z-index: 10;
   }
   .PokemonDetailPageBody {
     display: flex;
@@ -486,6 +488,24 @@ a {
         font-size: 27px;
         margin-top: 5px;
       }
+      h2{
+        text-align: center;
+        font-size: 16px;
+      }
+      .desc{
+        h3{
+          text-align: center;
+          font-size: 16px;
+          margin-top: 15px;
+        }
+        p{font-size: 14px;
+          text-align: center;
+          color: rgb(112, 112, 112);
+          margin: 5px 0;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+      }
       .type {
         margin-top: 10px;
         display: flex;
@@ -498,8 +518,89 @@ a {
           border-radius: 8px;
         }
       }
+      .abilities{
+        width: 100%;
+        display: flex;
+      }
+      .statsHeader{
+        margin: 10px 0;
+      }
+      .stats{
+        .stat{
+          display: block;
+          justify-content: center;
+          padding: 10px 3px;
+          padding-top: 3px;
+          background: rgba(0, 0, 0, 0.05);
+          border-radius: 20px;
+          .name{
+            text-align: center;
+            font-size: 10px;
+            font-weight: bold;
+            height: 32px;
+            width: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+          }
+          .num{
+            text-align: center;
+            margin-top: 5px;
+            font-weight: bold;
+            font-size: 14px;
+          }
+          &.HP .name{
+            background-color: rgb(208, 0, 35);
+          }
+          &.ATK .name{
+            background-color: rgb(255, 164, 53);
+          }
+          &.DEF .name{
+            background-color: rgb(213, 192, 0);
+          }
+          &.SpA .name{
+            background-color: rgb(0, 183, 255);
+          }
+          &.SpD .name{
+            background-color: rgb(141, 255, 139);
+          }
+          &.SPD .name{
+            background-color: rgb(255, 163, 178);
+          }
+          &.TOT{
+            background-color: rgba(70, 110, 255, 0.2);
+            .name{
+              background-color: rgb(70, 110, 255);
+            }
+          }
+        }
+      }
+      .unitData{
+        margin: 0px 2px;
+        width: 100%;
+        p{
+          text-align: center;
+          border-radius: 30px;
+          background-color: rgba(0, 0, 0, 0.05);
+          margin: 10px 0px;
+          padding: 8px;
+          width: 100%;
+          font-size: 12px;
+          font-weight: bold;
+          white-space: nowrap;
+        }
+      }
     }
   }
+}
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 #subDetailPanel {

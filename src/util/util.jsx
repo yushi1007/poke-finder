@@ -22,3 +22,42 @@ export const formatId = (id) => {
 export const freezeBody = (freeze = true) => {
     document.body.style.overflowY = freeze ? "hidden" : "scroll";
 };
+
+
+export const getTotalStat = (stats) =>{
+    let total = 0;
+    stats?.forEach(stat=>{
+        total+= stat?.base_stat
+    })
+    return total;
+}
+
+export const convertStatName = (statName) =>{
+    switch(statName){
+        case "hp":
+            return "HP";
+        case "attack":
+            return "ATK"
+        case "defense":
+            return "DEF"
+        case "special-attack":
+            return "SpA"
+        case "special-defense":
+            return "SpD"
+        case "speed":
+            return "SPD"
+        default:
+            return;
+    }
+}
+
+export const displayUnit = (measurement) =>{
+    switch(measurement){
+        case 'Weight':
+            return 'Kilograms';
+        case 'Height':
+            return 'Meter';
+        default:
+            return '';
+    }
+}
