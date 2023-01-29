@@ -164,8 +164,6 @@ a {
     height: 45px;
     max-width: 555px;
     width: 100%;
-    opacity: 0;
-    pointer-events: none;
     transition: all 0.2s linear;
 
     .search-icon {
@@ -186,10 +184,27 @@ a {
       background-color: #fff;
       padding: 0 15px 0 45px;
     }
-  }
-  &.show-search-box .search-box {
-    opacity: 1;
-    pointer-events: auto;
+
+    .auto-search-box {
+      position: absolute;
+      width: 100%;
+      padding: 0 15px 0 15px;
+      margin-top: 5px;
+      border-radius: 6px;
+      z-index: 1;
+      background-color: #fff;
+
+      .dropdown-item{
+        display: flex;justify-content: space-between;
+        align-items: center;
+        margin: 10px 0 10px 0;
+        cursor: pointer;
+        
+        img {
+          width: 30px;
+        }
+      }
+    }
   }
 }
 

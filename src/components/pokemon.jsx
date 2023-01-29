@@ -1,5 +1,5 @@
 import PokemonTypes from "./PokemonTypes";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import {freezeBody} from '../util/util'
 import comingSoonImage from "../assets/img/comingsoon.png";
 const Pokemon = ({

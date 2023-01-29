@@ -24,7 +24,6 @@ const PokemonDetails = () =>{
         getPokemonDataById(pokemonId)
         .then(pokemon=>{
             if(pokemon){
-                console.log(pokemon)
                 setPokemonData(pokemon)
             }
         })
