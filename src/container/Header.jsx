@@ -6,11 +6,16 @@ import { getPokedex } from "../api/Api";
 import Dropdown from "../components/Dropdown";
 import SearchBox from "../components/SearchBox";
 
-const Header = ({ handleSearch }) => {
+const Header = ({ handleSearch, options, searchTerm, setSearchTerm }) => {
   const [show, setShow] = useState(false);
 
   const toggleSearch = () => {
     setShow((show) => !show);
+  };
+
+  const handleAutoSearch = (poke) => {
+    setSearchTerm(poke);
+    setShow(false);
   };
 
   return (
@@ -28,7 +33,15 @@ const Header = ({ handleSearch }) => {
       ) : (
         <BiSearchAlt className="search-icon" onClick={toggleSearch} />
       )}
-      <SearchBox handleSearch={handleSearch} />
+      <SearchBox
+        handleSearch={handleSearch}
+        show={show}
+        setShow={setShow}
+        options={options}
+        handleAutoSearch={handleAutoSearch}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
     </header>
   );
 };

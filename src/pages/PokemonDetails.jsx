@@ -9,26 +9,19 @@ const PokemonDetails = () =>{
     const dispatch = useDispatch();
     const [pokemonData, setPokemonData] = useState();
     const clearPokemonData = () =>{
-        dispatch({ type: "CLEAR_SELECTION" });
+        dispatch({ type: "CLEAR_POKEMON_ID" });
+        dispatch({ type: "CLEAR_ABILITY_URL" })
         freezeBody(false)
     }
     useEffect(()=>{
-        if(pokemonId){
-            fetchPokemonData(pokemonId);
-        }else{
-            setPokemonData(null)
-        }
+        pokemonId ? fetchPokemonData(pokemonId) : setPokemonData(null);
     },[pokemonId])
     
-    const fetchPokemonData = (id) =>{
+    const fetchPokemonData = () =>{
         getPokemonDataById(pokemonId)
         .then(pokemon=>{
-            if(pokemon){
-                console.log(pokemon)
-                setPokemonData(pokemon)
-            }
+            setPokemonData(pokemon ? pokemon : null)
         })
-
     }
 
     return(
