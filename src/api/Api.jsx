@@ -95,6 +95,7 @@ export const fetchAbilityDetail = async (url) => {
     } catch (err) {
         console.log(err);
     }
+
 };
 
 export const fetchPokemonDescription = async (url) => {

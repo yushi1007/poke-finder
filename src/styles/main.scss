@@ -133,6 +133,21 @@ a {
 /* ----------------------------------------------- */
 /* HEADER */
 /* ----------------------------------------------- */
+.background { // /* opacity: 0; */
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: 0.2s;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -165,8 +180,6 @@ a {
     height: 45px;
     max-width: 555px;
     width: 100%;
-    opacity: 0;
-    pointer-events: none;
     transition: all 0.2s linear;
 
     .search-icon {
@@ -187,10 +200,32 @@ a {
       background-color: #fff;
       padding: 0 15px 0 45px;
     }
-  }
-  &.show-search-box .search-box {
-    opacity: 1;
-    pointer-events: auto;
+
+    .auto-search-box {
+      position: absolute;
+      width: 100%;
+      margin-top: 5px;
+      border-radius: 6px;
+      z-index: 1;
+      background-color: #fff;
+
+      .dropdown-item{
+        display: flex;justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        cursor: pointer;
+        text-transform: capitalize;
+        
+        &:hover {
+          background: #4398ff;
+          color: #ffe100;
+        }
+
+        img {
+          width: 30px;
+        }
+      }
+    }
   }
 }
 
@@ -354,7 +389,7 @@ a {
         position: absolute;
         right: 20px;
         top: 15px;
-        z-index: 10000;
+        z-index: 100;
         width: 8px;
         height: 8px;
         border: 2px solid #333;
