@@ -7,8 +7,6 @@ import Footer from "./container/Footer";
 import PokemonDetails from "./pages/PokemonDetails";
 
 function App() {
-  const [options, setOptions] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
   const [filterTerm, setFilterTerm] = useState("");
   const [pokemons, setPokemons] = useState();
   const [filteredPokemons, setFilteredPokemons] = useState();
@@ -25,10 +23,9 @@ function App() {
       }
     }
     setPokemons(pokemonArray);
-    setOptions(pokemonArray);
     setLoading(false);
   };
-  console.log(options)
+
   const getAllPokemons = async() =>{
     let pokemons = await getAllPokemonData();
     setAllPokemons(pokemons)
@@ -40,20 +37,11 @@ function App() {
     getAllPokemons();
   }, []);
 
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
   const handleTypeFilter = async(event) => {
       let filterType = event.target.innerText;
       setFilterTerm(filterType);
   };
 
-  const searchPokemons = pokemons?.filter((pokemon) =>
-    pokemon?.name?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  
   // const handleTypeFilter = async(event) => {
   //   let filterType = event.target.innerText;
   //   setFilterTerm(filterType);
@@ -70,22 +58,12 @@ function App() {
   //   })
   //   setFilteredPokemons(pokemons)
   // };
-
-  const filterPokemon = () => {
-    console.log(pokemons)
-  }
   
   return (
     <div className="App">
-      <Header 
-        handleSearch={handleSearch} 
-        options={options}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-      />
+      <Header pokemons={pokemons} />
       <Home
-        pokemons={searchPokemons}
-        // searchTerm={searchTerm}
+        pokemons={pokemons}
         filterTerm={filterTerm}
         setFilterTerm={setFilterTerm}
         handleTypeFilter={handleTypeFilter}
