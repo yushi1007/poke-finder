@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import homeicon from "../assets/img/homeicon.png";
 import SearchBox from "../components/SearchBox";
-
+import { freezeBody } from "../util/util";
 const Header = ({ pokemons }) => {
   const [backdrop, setBackdrop] = useState(false);
 
   const handleBackDrop = () =>{
     setBackdrop(!backdrop)
+    freezeBody(!backdrop)
   }
 
   return (
