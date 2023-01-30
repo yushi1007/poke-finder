@@ -57,6 +57,7 @@ const SearchBox = ({ pokemons, setBackdrop }) => {
               <Dropdown 
                 pokemon={pokemon}
                 setShow={setShow}
+                setBackdrop={setBackdrop}
                 key={index}
               />
             );

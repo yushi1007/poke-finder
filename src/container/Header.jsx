@@ -8,6 +8,7 @@ const Header = ({ pokemons }) => {
   const handleBackDrop = () =>{
     setBackdrop(!backdrop)
   }
+
   return (
   <React.Fragment>
     <header className="header container">
