@@ -144,17 +144,19 @@ a {
   backdrop-filter: blur(10px);
   width: 100%;
   top: 0;
-  z-index: 1000;
+  z-index: 2;
   transition: 0.2s;
 }
 
 .header {
   display: flex;
   align-items: center;
+  position: relative;
   justify-content: space-between;
   padding: 15px 100px;
   margin-top: 30px;
   width: 100%;
+  z-index: 3;
   border-radius: 10px;
   background: #4398ff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
@@ -389,7 +391,7 @@ a {
         position: absolute;
         right: 20px;
         top: 15px;
-        z-index: 100;
+        z-index: 1;
         width: 8px;
         height: 8px;
         border: 2px solid #333;
@@ -468,7 +470,7 @@ a {
   width: 100%;
   top: 100%;
   left: 0;
-  z-index: 10000;
+  z-index: 4;
   display: flex;
   transition: 0.3s;
   &.active {
