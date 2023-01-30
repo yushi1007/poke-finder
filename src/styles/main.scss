@@ -463,8 +463,8 @@ a {
   opacity: 0;
   height: 100vh;
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(30px) saturate(3);
   width: 100%;
   top: 100%;
   left: 0;
@@ -508,7 +508,8 @@ a {
   height: calc(100% - 180px);
   width: 400px;
   position: relative;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 15px;
   .body {
@@ -572,7 +573,7 @@ a {
           justify-content: center;
           padding: 10px 3px;
           padding-top: 3px;
-          background: rgba(0, 0, 0, 0.05);
+          background: rgba(255, 255, 255, 1);
           border-radius: 20px;
           .name{
             text-align: center;
@@ -611,9 +612,12 @@ a {
             background-color: rgb(255, 163, 178);
           }
           &.TOT{
-            background-color: rgba(70, 110, 255, 0.2);
+            background-color: rgba(70, 110, 255, 0.6);
             .name{
               background-color: rgb(70, 110, 255);
+            }
+            .num{
+              color:white;
             }
           }
         }
@@ -624,7 +628,7 @@ a {
         p{
           text-align: center;
           border-radius: 30px;
-          background-color: rgba(0, 0, 0, 0.05);
+          background-color: rgba(255, 255, 255, 1);
           margin: 10px 0px;
           padding: 8px;
           width: 100%;
@@ -648,19 +652,27 @@ a {
   height: 100%;
   width: 100%;
   margin-right: 20px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  padding: 15px;
+  background-color: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 10px;
   overflow-y: scroll;
   .move {
-    background-color: rgb(241, 241, 241);
+    box-shadow: 0px 0px 2px 1px rgba(46, 46, 46, 0.25);
+    background-color: rgb(255, 255, 255);
     padding: 8px 10px;
-    margin: 5px 0;
-    border-radius: 5px;
+    padding-left: 20px;
+    margin: 10px 0;
+    border-radius: 20px;
     p {
       width: 100%;
       font-weight: bold;
       font-size: 20px;
+    }
+    transition: .3s;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.01)
     }
   }
 }
