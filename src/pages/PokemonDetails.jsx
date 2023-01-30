@@ -14,6 +14,7 @@ const PokemonDetails = () =>{
         freezeBody(false)
     }
     useEffect(()=>{
+        freezeBody(!!pokemonId)
         pokemonId ? fetchPokemonData(pokemonId) : setPokemonData(null);
     },[pokemonId])
     
