@@ -70,8 +70,8 @@ const PokemonDetailCard = ({ data }) => {
                         {renderAbilities(data?.abilities)}
                     </div>
                     <div className="flex">
-                        {renderUnitData('Height',data?.height)}
-                        {renderUnitData('Weight',data?.weight)}
+                        {renderUnitData('Height',data?.height/10)}
+                        {renderUnitData('Weight',data?.weight/10)}
                     </div>
                     <h2 className="statsHeader">STATS</h2>
                     <div className="stats flex">
