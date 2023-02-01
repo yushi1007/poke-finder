@@ -35,7 +35,7 @@ const SearchBox = ({ pokemons, setBackdrop }) => {
       <BiSearchAlt className="search-icon" />
       <input
         type="text"
-        onClick={handleSearchClick}
+        onFocus={handleSearchClick}
         placeholder="Search pokémon here..."
         value={searchTerm}
         onChange={onChange}
