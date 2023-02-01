@@ -16,7 +16,7 @@ function App() {
   const getPokemonList = async () => {
     let pokemonArray = [];
 
-    for (let i = 1; i <= 151; i++) {
+    for (let i = 1; i <= 400; i++) {
       let pokemonData = await fetchSinglePokemonDetail(i);
       if (pokemonData) {
         pokemonArray.push(pokemonData);
