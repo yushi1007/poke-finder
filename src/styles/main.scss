@@ -239,6 +239,13 @@ a {
   margin-top: 2rem;
 }
 
+.loading {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
 .pokemons-box {
   grid-gap: 10px;
   border: 1px solid transparent;

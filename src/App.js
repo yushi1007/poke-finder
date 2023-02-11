@@ -65,6 +65,7 @@ function App() {
       <Home
         pokemons={pokemons}
         filterTerm={filterTerm}
+        loading={loading}
         setFilterTerm={setFilterTerm}
         handleTypeFilter={handleTypeFilter}
       />
